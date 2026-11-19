@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AlishLab — обучающее веб-приложение по дисциплине «Веб-технологии»: HTML, CSS, Flexbox, Grid и адаптивная вёрстка.">
+  <title>AlishLab — школа вёрстки</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+        <span class="logo__text">AlishLab</span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle">
+      <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link nav__link--active" href="index.html" aria-current="page">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="curriculum.html">Программа</a></li>
+          <li class="nav__item"><a class="nav__link" href="lesson.html">Урок</a></li>
+          <li class="nav__item"><a class="nav__link" href="register.html">Запись</a></li>
+        </ul>
+      </nav>
+
+      <a class="button button--primary button--small header__cta" href="register.html">Начать учиться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <h1 class="hero__title">Научись верстать сайты <span class="hero__accent">с нуля</span></h1>
+          <p class="hero__text">
+            Короткие уроки, живые примеры кода и песочница прямо в браузере.
+            От первого тега <code>&lt;html&gt;</code> до адаптивной вёрстки на Flexbox и Grid.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="register.html">Записаться бесплатно</a>
+            <a class="button button--ghost" href="curriculum.html">Смотреть программу</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <img class="hero__image" src="img/hero.svg" alt="Схема веб-страницы: шапка, первый экран и три карточки" width="520" height="420">
+        </div>
+      </div>
+    </section>
+
+    <!-- Преимущества: информационные блоки -->
+    <section class="section features">
+      <div class="container">
+        <div class="section__head">
+          <h2>Учимся на практике, а не на слайдах</h2>
+          <p class="section__lead">Каждый урок — это немного теории, пример кода и задание, которое сразу видно в браузере.</p>
+        </div>
+
+        <div class="features__list">
+          <article class="feature">
+            <h3 class="feature__title">Живой код</h3>
+            <p class="feature__text">Пишешь HTML и CSS в песочнице и сразу видишь результат — без установки программ.</p>
+          </article>
+          <article class="feature">
+            <h3 class="feature__title">Пошаговая программа</h3>
+            <p class="feature__text">От семантики к Flexbox, Grid и адаптиву. Каждый модуль опирается на предыдущий.</p>
+          </article>
+          <article class="feature">
+            <h3 class="feature__title">Проверка заданий</h3>
+            <p class="feature__text">Наставник смотрит код и подсказывает, как сделать разметку чище и понятнее.</p>
+          </article>
+          <article class="feature">
+            <h3 class="feature__title">Проект в портфолио</h3>
+            <p class="feature__text">В конце курса верстаешь свой адаптивный сайт и защищаешь его, как настоящий разработчик.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Курсы: три карточки в ряд на Flexbox -->
+    <section class="section courses" id="courses">
+      <div class="container">
+        <div class="section__head">
+          <h2>Выбери, с чего начать</h2>
+        </div>
+
+        <div class="courses__row">
+          <article class="card">
+            <h3 class="card__title">HTML с нуля</h3>
+            <p class="card__description">Как устроена веб-страница, теги, семантика, ссылки, таблицы и формы.</p>
+            <ul class="card__list">
+              <li>12 уроков</li>
+              <li>Семантическая разметка</li>
+              <li>Формы и таблицы</li>
+            </ul>
+            <div class="card__meta">
+              <span>3 недели</span>
+              <span class="card__price">0 сом</span>
+            </div>
+            <a class="button card__button" href="curriculum.html">Подробнее</a>
+          </article>
+
+          <article class="card card--featured">
+            <h3 class="card__title">CSS и вёрстка</h3>
+            <p class="card__description">Селекторы, блочная модель, позиционирование, Flexbox, тени и градиенты.</p>
+            <ul class="card__list">
+              <li>20 уроков</li>
+              <li>Flexbox и позиционирование</li>
+              <li>Методология БЭМ</li>
+            </ul>
+            <div class="card__meta">
+              <span>5 недель</span>
+              <span class="card__price">6 500 сом</span>
+            </div>
+            <a class="button button--primary card__button" href="register.html">Записаться</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Адаптив и Grid</h3>
+            <p class="card__description">CSS Grid, медиазапросы, относительные единицы и итоговый проект.</p>
+            <ul class="card__list">
+              <li>16 уроков</li>
+              <li>CSS Grid Layout</li>
+              <li>Мобильная версия сайта</li>
+            </ul>
+            <div class="card__meta">
+              <span>4 недели</span>
+              <span class="card__price">5 000 сом</span>
+            </div>
+            <a class="button card__button" href="curriculum.html">Подробнее</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Призыв к действию -->
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div class="cta__content">
+            <h2 class="cta__title">Первый урок — уже через 5 минут</h2>
+            <p class="cta__text">Открой урок про блочную модель и попробуй песочницу прямо сейчас.</p>
+          </div>
+          <a class="button" href="lesson.html">Открыть урок →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__col">
+        <a class="logo footer__logo" href="index.html">
+          <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+          <span class="logo__text">AlishLab</span>
+        </a>
+        <p class="footer__about">Учебный проект по дисциплине «Веб-технологии». Школа вёрстки на HTML и CSS.</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Разделы</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="index.html">Главная</a></li>
+          <li><a class="footer__link" href="curriculum.html">Программа</a></li>
+          <li><a class="footer__link" href="lesson.html">Урок</a></li>
+          <li><a class="footer__link" href="register.html">Запись на курс</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="mailto:hello@alishlab.example">hello@alishlab.example</a></li>
+          <li><a class="footer__link" href="tel:+996555000000">+996 (555) 00-00-00</a></li>
+          <li>г. Бишкек, Кыргызстан</li>
+          <li>Пн–Пт, 10:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© 2026 AlishLab. Модульное задание № 1.</span>
+      <a class="footer__link" href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
