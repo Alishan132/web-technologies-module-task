@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Урок 4.1: блочная модель CSS — width, height, padding, margin, border и свойство display.">
+  <title>Урок 4.1. Блочная модель — AlishLab</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+        <span class="logo__text">AlishLab</span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle">
+      <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="curriculum.html">Программа</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="lesson.html" aria-current="page">Урок</a></li>
+          <li class="nav__item"><a class="nav__link" href="register.html">Запись</a></li>
+        </ul>
+      </nav>
+
+      <a class="button button--primary button--small header__cta" href="register.html">Начать учиться</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <ol class="breadcrumbs">
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="curriculum.html">Программа</a></li>
+          <li class="breadcrumbs__item">Модуль 4</li>
+        </ol>
+        <h1 class="page-head__title">Урок 4.1. Блочная модель</h1>
+        <p class="page-head__text">Любой элемент на странице представляет собой прямоугольник. Разберёмся, из чего он состоит и как браузер считает его размеры.</p>
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="lesson container">
+
+        <aside class="toc" aria-label="Содержание урока">
+          <h2 class="toc__title">Содержание</h2>
+          <ul class="toc__list">
+            <li class="toc__item"><a class="toc__link" href="#box">1. Из чего состоит блок</a></li>
+            <li class="toc__item"><a class="toc__link" href="#display">2. block, inline, inline-block</a></li>
+            <li class="toc__item"><a class="toc__link" href="#position">3. Позиционирование и z-index</a></li>
+            <li class="toc__item"><a class="toc__link" href="#sandbox">4. Песочница</a></li>
+          </ul>
+          <div class="toc__progress"><div class="toc__bar"></div></div>
+          <p class="toc__caption">Модуль 4: урок 1 из 4</p>
+        </aside>
+
+        <article class="prose">
+          <h2 id="box">1. Из чего состоит блок</h2>
+          <div class="float-box">
+            <figure class="figure figure--float">
+              <img class="figure__img" src="img/box-model.svg" alt="Схема блочной модели: content внутри padding, padding внутри border, снаружи margin" width="320" height="260">
+              <figcaption class="figure__caption">Рис. 1. Слои блочной модели</figcaption>
+            </figure>
+            <p>
+              Каждый HTML-элемент браузер рисует как прямоугольную коробку. У коробки четыре слоя —
+              от центра к краю:
+            </p>
+            <ul class="prose__list">
+              <li><strong>content</strong>: содержимое, его размеры задают <code>width</code> и <code>height</code>;</li>
+              <li><strong>padding</strong>: внутренний отступ между содержимым и рамкой;</li>
+              <li><strong>border</strong>: рамка;</li>
+              <li><strong>margin</strong>: внешний отступ до соседних элементов.</li>
+            </ul>
+            <p>
+              По умолчанию <code>width</code> задаёт ширину только содержимого. Если добавить
+              <code>padding</code> и <code>border</code>, элемент станет шире. Поэтому почти во всех
+              проектах в начале CSS пишут <code>box-sizing: border-box</code>, тогда ширина считается
+              вместе с отступами и рамкой.
+            </p>
+          </div>
+
+          <pre class="code"><code><span class="code__comment">/* блок шириной ровно 280px вместе с рамкой */</span>
+.box {
+  <span class="code__prop">box-sizing</span>: border-box;
+  <span class="code__prop">width</span>: 280px;
+  <span class="code__prop">padding</span>: 24px;
+  <span class="code__prop">border</span>: 6px solid tomato;
+  <span class="code__prop">margin</span>: 24px auto;  <span class="code__comment">/* auto по бокам центрирует блок */</span>
+}</code></pre>
+
+          <div class="demo">
+            <span class="demo__label">результат: серое поле это margin, оранжевая рамка это border, розовое это padding</span>
+            <div class="box-demo">
+              <div class="box-demo__content">content</div>
+            </div>
+          </div>
+
+          <h2 class="clear" id="display">2. block, inline, inline-block</h2>
+          <p>
+            Свойство <code>display</code> определяет, как элемент встаёт в поток страницы.
+            Блочные элементы (<code>div</code>, <code>p</code>, <code>section</code>) занимают всю строку,
+            строчные (<code>span</code>, <code>a</code>, <code>strong</code>) занимают только место под текст.
+          </p>
+
+          <div class="demo">
+            <span class="demo__label">display: block, всегда с новой строки, на всю ширину</span>
+            <div class="display-demo__block">block</div>
+            <div class="display-demo__block">block</div>
+
+            <span class="demo__label">display: inline, внутри текста, width и height не работают</span>
+            <p>
+              Это обычный текст, в котором есть <span class="display-demo__inline">inline-элемент</span>
+              и ещё один <span class="display-demo__inline">inline</span>. Ширина 300px для них
+              прописана, но игнорируется.
+            </p>
+
+            <span class="demo__label">display: inline-block, в строку, но с размерами</span>
+            <span class="display-demo__inline-block">130 × 64</span>
+            <span class="display-demo__inline-block">130 × 64</span>
+            <span class="display-demo__inline-block">130 × 64</span>
+          </div>
+
+          <div class="note" role="note">
+            <span class="note__badge">важно</span>
+            <p>
+              Вертикальные <code>margin</code> у соседних блочных элементов не складываются, а
+              «схлопываются»: между ними остаётся больший из двух отступов.
+            </p>
+          </div>
+
+          <h2 id="position">3. Позиционирование и z-index</h2>
+          <p>
+            <code>position: relative</code> оставляет элемент в потоке и делает его «точкой отсчёта».
+            Элемент с <code>position: absolute</code> вынимается из потока и ставится по
+            координатам <code>top</code>, <code>left</code> относительно ближайшего
+            позиционированного родителя. Порядок слоёв задаёт <code>z-index</code>:
+            чем больше число, тем выше слой.
+          </p>
+
+          <div class="demo">
+            <span class="demo__label">наведи на карточку: её z-index станет 10</span>
+            <div class="stack">
+              <div class="stack__card stack__card--1">z-index: 1</div>
+              <div class="stack__card stack__card--2">z-index: 3</div>
+              <div class="stack__card stack__card--3">z-index: 2</div>
+            </div>
+          </div>
+
+          <pre class="code"><code>.stack { <span class="code__prop">position</span>: relative; }
+.stack__card { <span class="code__prop">position</span>: absolute; }
+.stack__card--2 { <span class="code__prop">top</span>: 50px; <span class="code__prop">left</span>: 90px; <span class="code__prop">z-index</span>: 3; }</code></pre>
+
+          <div class="note note--tip" role="note">
+            <span class="note__badge">совет</span>
+            <p>
+              Значок «важно» выше тоже использует абсолютное позиционирование: у заметки стоит
+              <code>position: relative</code>, а у значка <code>position: absolute; top: -14px</code>.
+            </p>
+          </div>
+
+          <h2 id="sandbox">4. Песочница</h2>
+          <p>Измени <code>padding</code>, <code>border</code> или <code>margin</code> и посмотри, как меняется блок. Результат обновляется сразу.</p>
+
+          <div class="sandbox">
+            <div class="sandbox__bar">
+              <span class="sandbox__title">Песочница</span>
+              <div class="sandbox__actions">
+                <button class="button button--small" type="button" id="sandbox-reset">Сбросить</button>
+                <button class="button button--primary button--small" type="button" id="sandbox-run">Запустить</button>
+              </div>
+            </div>
+            <div class="sandbox__body">
+              <label class="visually-hidden" for="sandbox-code">Редактор кода</label>
+              <textarea class="sandbox__editor" id="sandbox-code" spellcheck="false">&lt;style&gt;
+  .box {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid tomato;
+    margin: 30px auto;
+    background: #ffe3d9;
+    font-family: sans-serif;
+  }
+&lt;/style&gt;
+
+&lt;div class="box"&gt;Привет, блочная модель!&lt;/div&gt;</textarea>
+              <iframe class="sandbox__preview" id="sandbox-frame" title="Результат кода" sandbox=""></iframe>
+            </div>
+          </div>
+
+          <nav class="pager" aria-label="Навигация по урокам">
+            <a class="pager__link" href="curriculum.html">
+              <span class="pager__hint">← назад</span>
+              <span class="pager__title">Программа курса</span>
+            </a>
+            <a class="pager__link pager__link--next" href="register.html">
+              <span class="pager__hint">дальше →</span>
+              <span class="pager__title">Записаться на полный курс</span>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__col">
+        <a class="logo footer__logo" href="index.html">
+          <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+          <span class="logo__text">AlishLab</span>
+        </a>
+        <p class="footer__about">Учебный проект по дисциплине «Веб-технологии». Школа вёрстки на HTML и CSS.</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Разделы</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="index.html">Главная</a></li>
+          <li><a class="footer__link" href="curriculum.html">Программа</a></li>
+          <li><a class="footer__link" href="lesson.html">Урок</a></li>
+          <li><a class="footer__link" href="register.html">Запись на курс</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="mailto:hello@alishlab.example">hello@alishlab.example</a></li>
+          <li><a class="footer__link" href="tel:+996555000000">+996 (555) 00-00-00</a></li>
+          <li>г. Бишкек, Кыргызстан</li>
+          <li>Пн–Пт, 10:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© 2026 AlishLab. Модульное задание № 1.</span>
+      <a class="footer__link" href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/sandbox.js"></script>
+</body>
+</html>
