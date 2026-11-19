@@ -82,6 +82,18 @@ a {
   --yellow: #fde7d4; /* светлый тон акцента: выделения и подсветка */
   --blue: #2b4acb;
 
+  /* тона курсов: фон карточки, линия и цифра, текст, ссылка */
+  --slate-surface: #e6eaf0;
+  --slate-strong: #334155;
+  --slate-ink: #1e293b;
+  --orange-surface: #fbe5d6;
+  --orange-strong: #c2410c;
+  --orange-ink: #6b260b;
+  --orange-link: #9a3412;
+  --green-surface: #dcece5;
+  --green-strong: #1f6f54;
+  --green-ink: #123b30;
+
   --font-display: "Golos Text", "Segoe UI", sans-serif;
   --font-body: "Golos Text", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", Consolas, monospace;
@@ -263,6 +275,11 @@ a:focus-visible {
   justify-content: space-between;
   gap: 1.5rem;
   min-height: 72px;
+}
+
+.header__cta {
+  flex: none;
+  white-space: nowrap;
 }
 
 .logo {
@@ -461,35 +478,78 @@ a:focus-visible {
   gap: 1.75rem;
 }
 
+/* каждая карточка окрашена в тон своего курса; тон задают переменные --tone-* */
 .card {
+  --tone-surface: var(--slate-surface);
+  --tone-strong: var(--slate-strong);
+  --tone-ink: var(--slate-ink);
   display: flex;
   flex-direction: column;
   flex: 1 1 0;
-  padding: 2rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1.75rem 2rem 2rem;
+  color: var(--tone-ink);
+  background: var(--tone-surface);
+  border: 1px solid transparent;
+  border-top: 4px solid var(--tone-strong);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hard);
+.card:hover,
+.card:focus-within {
+  border-color: var(--tone-strong);
 }
 
+.card--html {
+  --tone-surface: var(--slate-surface);
+  --tone-strong: var(--slate-strong);
+  --tone-ink: var(--slate-ink);
+}
+
+.card--layout {
+  --tone-surface: var(--green-surface);
+  --tone-strong: var(--green-strong);
+  --tone-ink: var(--green-ink);
+}
+
+/* главный курс: шире соседей и с более толстой верхней линией */
 .card--featured {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent), var(--shadow-soft);
+  --tone-surface: var(--orange-surface);
+  --tone-strong: var(--orange-strong);
+  --tone-ink: var(--orange-ink);
+  flex-grow: 1.35;
+  border-top-width: 8px;
+}
+
+.card__count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.card__number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  color: var(--tone-strong);
+}
+
+.card--featured .card__number {
+  font-size: clamp(3.5rem, 6.5vw, 5.25rem);
 }
 
 .card__title {
   font-size: 1.45rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
 .card__description {
-  opacity: 0.8;
+  max-width: 34ch;
 }
 
 .card__list {
@@ -497,16 +557,20 @@ a:focus-visible {
 }
 
 .card__list li {
-  padding: 0.35rem 0 0.35rem 1.6rem;
+  padding: 0.35rem 0 0.35rem 1.4rem;
   position: relative;
+  font-weight: 500;
 }
 
+/* маркер списка — короткая линия цвета курса */
 .card__list li::before {
-  content: "✓";
+  content: "";
   position: absolute;
+  top: 1.05em;
   left: 0;
-  font-weight: 700;
-  color: var(--accent);
+  width: 0.7rem;
+  height: 2px;
+  background: var(--tone-strong);
 }
 
 .card__meta {
@@ -515,16 +579,18 @@ a:focus-visible {
   align-items: baseline;
   margin-top: auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--tone-strong);
 }
 
 .card__price {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .card__button {
   margin-top: 1.25rem;
+  border-color: var(--tone-strong);
 }
 
 /* 5.4 Призыв к действию */
@@ -550,6 +616,22 @@ a:focus-visible {
 .cta__text {
   margin-top: 0.75rem;
   opacity: 0.9;
+}
+
+.cta__content {
+  flex: 1 1 22rem;
+}
+
+.cta__button {
+  margin-top: 1.75rem;
+}
+
+/* рисунок справа от текста и кнопки, на телефоне скрыт */
+.cta__art {
+  flex: none;
+  width: 240px;
+  height: auto;
+  margin: -1.5rem 0;
 }
 
 /* ---------- 6. Подвал ---------- */
@@ -620,6 +702,21 @@ a:focus-visible {
   text-shadow: 3px 3px 0 rgba(194, 65, 12, 0.18);
 }
 
+/* заголовок слева, рисунок справа (страница «Запись») */
+.page-head__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.page-head__art {
+  flex: none;
+  width: 240px;
+  height: auto;
+  margin: -1.5rem 0;
+}
+
 .page-head__text {
   max-width: 40rem;
   margin-top: 1rem;
@@ -638,41 +735,72 @@ a:focus-visible {
   align-items: stretch;
 }
 
+/* модуль окрашен в тон курса, к которому он относится (как карточки на главной) */
 .module {
+  --tone-surface: var(--slate-surface);
+  --tone-strong: var(--slate-strong);
+  --tone-ink: var(--slate-ink);
+  --tone-link: var(--slate-strong);
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 1.75rem;
+  padding: 1.4rem 1.5rem 1.25rem;
   overflow: hidden;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-hard);
-  transition: transform 0.2s ease;
+  color: var(--tone-ink);
+  background: var(--tone-surface);
+  border: 1px solid transparent;
+  border-top: 3px solid var(--tone-strong);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
 }
 
-.module:hover {
-  transform: translateY(-2px);
+.module:hover,
+.module:focus-within {
+  border-color: var(--tone-strong);
+}
+
+.module--html {
+  --tone-surface: var(--slate-surface);
+  --tone-strong: var(--slate-strong);
+  --tone-ink: var(--slate-ink);
+  --tone-link: var(--slate-strong);
+}
+
+.module--css {
+  --tone-surface: var(--orange-surface);
+  --tone-strong: var(--orange-strong);
+  --tone-ink: var(--orange-ink);
+  --tone-link: var(--orange-link);
+}
+
+.module--layout {
+  --tone-surface: var(--green-surface);
+  --tone-strong: var(--green-strong);
+  --tone-ink: var(--green-ink);
+  --tone-link: var(--green-strong);
 }
 
 .module__num {
-  margin-bottom: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
   font-weight: 700;
-  color: var(--accent);
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  color: var(--tone-strong);
 }
 
 .module__title {
   position: relative;
-  margin-bottom: 0.6rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
 .module__text {
-  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
   font-size: 0.98rem;
 }
 
@@ -681,37 +809,71 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 1.25rem;
+  padding-top: 0.85rem;
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  border-top: 1px solid var(--tone-strong);
 }
 
 .module__link {
   font-weight: 700;
-  color: var(--accent);
+  color: var(--tone-link);
 }
 
-.module__link:hover {
+.module__link:hover,
+.module__link:focus-visible {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+/* итоговый проект: тёмно-зелёный блок на две колонки */
 .module--wide {
+  --tone-strong: #8fd3b4;
+  --tone-ink: #e4f1eb;
+  --tone-link: var(--yellow);
   grid-column: span 2;
-  color: var(--paper);
-  background: radial-gradient(circle at 85% 20%, #2a3442 0%, var(--ink) 60%);
-}
-
-.module--wide .module__text {
-  color: rgba(243, 238, 228, 0.75);
+  background: radial-gradient(circle at 85% 20%, #1f5a47 0%, #0f3329 65%);
 }
 
 .module--wide .module__num {
-  color: var(--yellow);
+  font-size: 4rem;
 }
 
-.module--wide .module__link {
-  color: var(--yellow);
+.module--wide .module__text {
+  max-width: 52ch;
+}
+
+/* подпись к цветам модулей */
+.legend {
+  margin-top: 1rem;
+  color: var(--ink-soft);
+}
+
+.legend__item {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.legend__item::before {
+  content: "";
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-right: 0.4em;
+  vertical-align: -0.02em;
+}
+
+.legend__item--html::before {
+  background: var(--slate-strong);
+}
+
+.legend__item--css::before {
+  background: var(--orange-strong);
+}
+
+.legend__item--layout::before {
+  background: var(--green-strong);
 }
 
 /* 7.3 Таблица расписания */
@@ -1012,7 +1174,7 @@ a:focus-visible {
   display: inline;
   padding: 0.2rem 0.4rem;
   background: var(--yellow);
-  /* у inline width/height не работают — проверь в DevTools */
+  /* у inline-элементов width и height не действуют */
   width: 300px;
 }
 
@@ -1232,9 +1394,10 @@ a:focus-visible {
 }
 
 .perks__icon {
-  flex: 0 0 2rem;
-  font-family: var(--font-mono);
+  flex: 0 0 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
+  line-height: 1;
   color: var(--accent);
 }
 
@@ -1251,22 +1414,26 @@ a:focus-visible {
   margin-top: 1.5rem;
   padding: 1.5rem;
   color: var(--paper);
-  background: linear-gradient(135deg, var(--ink), #2a3442);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-soft);
+  background: radial-gradient(circle at 85% 20%, #1f5a47 0%, #0f3329 65%);
+  border-top: 6px solid #8fd3b4;
 }
 
 .price-box__value {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--yellow);
 }
 
+
+/* форма — цветная панель, как карточки курсов; белыми остаются только поля */
 .form {
-  padding: 2.25rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: calc(var(--radius) * 1.25);
-  box-shadow: var(--shadow-hard);
+  padding: 2.25rem 2.25rem 2rem;
+  background: var(--slate-surface);
+  border: 1px solid transparent;
+  border-top: 6px solid var(--slate-strong);
+  border-radius: 0;
 }
 
 .form__title {
@@ -1297,7 +1464,7 @@ a:focus-visible {
 }
 
 .form__required {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
 .form__input,
@@ -1306,7 +1473,7 @@ a:focus-visible {
   width: 100%;
   padding: 0.8rem 1rem;
   font-size: 1rem;
-  background: var(--paper);
+  background: var(--white);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
@@ -1320,7 +1487,7 @@ a:focus-visible {
 .form__input:hover,
 .form__select:hover,
 .form__textarea:hover {
-  background: var(--white);
+  border-color: var(--slate-strong);
 }
 
 /* псевдокласс :focus */
@@ -1341,6 +1508,11 @@ a:focus-visible {
 
 .form__input:not(:placeholder-shown):valid {
   border-color: var(--green);
+}
+
+/* у select свой расчёт высоты, поэтому задаём её явно: как у обычных полей */
+.form__select {
+  height: 3.325rem;
 }
 
 .form__textarea {
@@ -1367,18 +1539,35 @@ a:focus-visible {
 .form__options {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
+  gap: 0.6rem;
   margin-top: 0.5rem;
 }
 
-/* radio и checkbox: обычные подписи без рамок */
+/* radio и checkbox: белые плитки, выбранная заливается светлым оранжевым */
 .choice {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0;
+  padding: 0.55rem 0.9rem;
+  background: var(--white);
+  border: 1px solid var(--line-strong);
   cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.choice:hover {
+  border-color: var(--slate-strong);
+}
+
+.choice:has(.choice__input:checked) {
+  background: var(--orange-surface);
+  border-color: var(--orange-strong);
+}
+
+.choice:has(.choice__input:focus-visible) {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .choice__input {
@@ -1393,13 +1582,8 @@ a:focus-visible {
 }
 
 .choice--agree {
-  border: none;
-  background: none;
-  padding-left: 0;
-}
-
-.choice--agree:hover {
-  background: none;
+  display: flex;
+  margin-top: 0.25rem;
 }
 
 .form__submit {
@@ -1479,6 +1663,10 @@ a:focus-visible {
     flex: 1 1 280px;
   }
 
+  .card--featured {
+    flex: 1.35 1 320px;
+  }
+
   .lesson {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
@@ -1547,6 +1735,14 @@ a:focus-visible {
 
   .cta {
     padding: 2rem 1.5rem;
+  }
+
+  .cta__art {
+    display: none;
+  }
+
+  .page-head__art {
+    display: none;
   }
 
   .figure--float {
