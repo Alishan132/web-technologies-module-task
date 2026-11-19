@@ -370,15 +370,15 @@ a:focus-visible {
 }
 
 /* соседние селекторы + и ~ : состояние чекбокса меняет бургер и меню */
-.nav-toggle:checked + .burger .burger__line:nth-child(1) {
+.nav-toggle:checked + .burger .burger__line:nth-child(2) {
   transform: translateY(8px) rotate(45deg);
 }
 
-.nav-toggle:checked + .burger .burger__line:nth-child(2) {
+.nav-toggle:checked + .burger .burger__line:nth-child(3) {
   opacity: 0;
 }
 
-.nav-toggle:checked + .burger .burger__line:nth-child(3) {
+.nav-toggle:checked + .burger .burger__line:nth-child(4) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
