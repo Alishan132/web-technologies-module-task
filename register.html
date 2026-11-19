@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Запись на курс AlishLab: оставь заявку, и мы подберём поток.">
+  <title>Запись на курс — AlishLab</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+        <span class="logo__text">AlishLab</span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle">
+      <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="curriculum.html">Программа</a></li>
+          <li class="nav__item"><a class="nav__link" href="lesson.html">Урок</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="register.html" aria-current="page">Запись</a></li>
+        </ul>
+      </nav>
+
+      <a class="button button--primary button--small header__cta" href="lesson.html">Пробный урок</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1 class="page-head__title">Оставь заявку</h1>
+        <p class="page-head__text">Заполни форму, и куратор напишет тебе в течение дня: расскажет про расписание и откроет доступ к первому модулю.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="register container">
+
+        <aside class="register__aside">
+          <h2>Что ты получишь</h2>
+          <ul class="perks">
+            <li class="perks__item">
+              <span class="perks__icon">1</span>
+              <p class="perks__text"><strong>Доступ ко всем урокам</strong>Видео, конспекты и песочница — навсегда.</p>
+            </li>
+            <li class="perks__item">
+              <span class="perks__icon">2</span>
+              <p class="perks__text"><strong>Проверку домашних заданий</strong>Наставник разбирает код и даёт обратную связь.</p>
+            </li>
+            <li class="perks__item">
+              <span class="perks__icon">3</span>
+              <p class="perks__text"><strong>Сертификат</strong>После защиты итогового проекта.</p>
+            </li>
+          </ul>
+          <div class="price-box">
+            <p>Первый модуль</p>
+            <p class="price-box__value">бесплатно</p>
+          </div>
+        </aside>
+
+        <form class="form" action="#" method="get">
+          <h2 class="form__title">Анкета</h2>
+          <p class="form__intro">Поля со звёздочкой <span class="form__required">*</span> обязательны.</p>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="name">Имя <span class="form__required">*</span></label>
+              <input class="form__input" type="text" id="name" name="name" placeholder="Айдай" autocomplete="name" minlength="2" required>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="email">Электронная почта <span class="form__required">*</span></label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="name@mail.kg" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__field">
+              <label class="form__label" for="phone">Телефон <span class="form__required">*</span></label>
+              <input class="form__input" type="tel" id="phone" name="phone" placeholder="+996 555 123 456" autocomplete="tel" pattern="[\+\d\s\-\(\)]{10,18}" required>
+              <span class="form__hint">Только цифры, пробелы и знак +</span>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="course">Курс <span class="form__required">*</span></label>
+              <select class="form__select" id="course" name="course" required>
+                <option value="" disabled selected>Выбери курс</option>
+                <option value="html">HTML с нуля</option>
+                <option value="css">CSS и вёрстка</option>
+                <option value="grid">Адаптив и Grid</option>
+                <option value="full">Полная программа</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Формат занятий</legend>
+            <div class="form__options">
+              <label class="choice">
+                <input class="choice__input" type="radio" name="format" value="online" checked>
+                <span class="choice__text">Онлайн с наставником</span>
+              </label>
+              <label class="choice">
+                <input class="choice__input" type="radio" name="format" value="self">
+                <span class="choice__text">Самостоятельно</span>
+              </label>
+              <label class="choice">
+                <input class="choice__input" type="radio" name="format" value="weekend">
+                <span class="choice__text">По выходным</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__fieldset">
+            <legend class="form__legend">Что уже знаешь?</legend>
+            <div class="form__options">
+              <label class="choice">
+                <input class="choice__input" type="checkbox" name="skills" value="html">
+                <span class="choice__text">HTML</span>
+              </label>
+              <label class="choice">
+                <input class="choice__input" type="checkbox" name="skills" value="css">
+                <span class="choice__text">CSS</span>
+              </label>
+              <label class="choice">
+                <input class="choice__input" type="checkbox" name="skills" value="js">
+                <span class="choice__text">JavaScript</span>
+              </label>
+              <label class="choice">
+                <input class="choice__input" type="checkbox" name="skills" value="none">
+                <span class="choice__text">Пока ничего</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form__field">
+            <label class="form__label" for="message">Сообщение</label>
+            <textarea class="form__textarea" id="message" name="message" placeholder="Расскажи, зачем тебе вёрстка и когда удобно заниматься" maxlength="500"></textarea>
+          </div>
+
+          <label class="choice choice--agree">
+            <input class="choice__input" type="checkbox" name="agree" required>
+            <span class="choice__text">Согласен на обработку персональных данных <span class="form__required">*</span></span>
+          </label>
+
+          <button class="button button--primary button--block form__submit" type="submit">Отправить заявку</button>
+          <p class="form__success" id="form-success" role="status" hidden></p>
+          <p class="form__note">Учебная форма: данные никуда не отправляются.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__col">
+        <a class="logo footer__logo" href="index.html">
+          <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+          <span class="logo__text">AlishLab</span>
+        </a>
+        <p class="footer__about">Учебный проект по дисциплине «Веб-технологии». Школа вёрстки на HTML и CSS.</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Разделы</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="index.html">Главная</a></li>
+          <li><a class="footer__link" href="curriculum.html">Программа</a></li>
+          <li><a class="footer__link" href="lesson.html">Урок</a></li>
+          <li><a class="footer__link" href="register.html">Запись на курс</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="mailto:hello@alishlab.example">hello@alishlab.example</a></li>
+          <li><a class="footer__link" href="tel:+996555000000">+996 (555) 00-00-00</a></li>
+          <li>г. Бишкек, Кыргызстан</li>
+          <li>Пн–Пт, 10:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© 2026 AlishLab. Модульное задание № 1.</span>
+      <a class="footer__link" href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/form.js"></script>
+</body>
+</html>
