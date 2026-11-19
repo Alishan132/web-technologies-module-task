@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Программа курса AlishLab: 11 модулей по HTML и CSS и расписание занятий.">
+  <title>Программа курса — AlishLab</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html">
+        <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+        <span class="logo__text">AlishLab</span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle">
+      <label class="burger" for="nav-toggle" aria-label="Открыть меню">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </label>
+
+      <nav class="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="curriculum.html" aria-current="page">Программа</a></li>
+          <li class="nav__item"><a class="nav__link" href="lesson.html">Урок</a></li>
+          <li class="nav__item"><a class="nav__link" href="register.html">Запись</a></li>
+        </ul>
+      </nav>
+
+      <a class="button button--primary button--small header__cta" href="register.html">Начать учиться</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1 class="page-head__title">Программа курса</h1>
+        <p class="page-head__text">
+          11 модулей — от устройства интернета до собственного адаптивного сайта.
+          Проходи по порядку: каждый следующий модуль использует то, что ты уже знаешь.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Сетка модулей на CSS Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Модули</h2>
+        </div>
+
+        <div class="modules">
+          <article class="module">
+            <span class="module__num">01</span>
+            <h3 class="module__title">Как работает веб</h3>
+            <p class="module__text">Браузер, сервер, HTTP, домены. Что происходит, когда открываешь сайт.</p>
+            <div class="module__footer"><span>3 урока</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">02</span>
+            <h3 class="module__title">HTML и семантика</h3>
+            <p class="module__text">Структура документа, заголовки, списки, ссылки, header, nav, main, article, footer.</p>
+            <div class="module__footer"><span>6 уроков</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">03</span>
+            <h3 class="module__title">CSS: селекторы и каскад</h3>
+            <p class="module__text">Подключение CSS, селекторы элементов, классов, id, дочерние и соседние, псевдоклассы.</p>
+            <div class="module__footer"><span>5 уроков</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">04</span>
+            <h3 class="module__title">Блочная модель</h3>
+            <p class="module__text">width, height, padding, margin, border и разница между block, inline и inline-block.</p>
+            <div class="module__footer"><span>4 урока</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">05</span>
+            <h3 class="module__title">Позиционирование</h3>
+            <p class="module__text">position: relative, absolute, sticky, слои z-index, float и очистка обтекания.</p>
+            <div class="module__footer"><span>4 урока</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">06</span>
+            <h3 class="module__title">Flexbox</h3>
+            <p class="module__text">Flex-контейнер, оси, justify-content, align-items, перенос и свойство flex.</p>
+            <div class="module__footer"><span>5 уроков</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">07</span>
+            <h3 class="module__title">CSS Grid</h3>
+            <p class="module__text">Колонки и строки, gap, auto-fit, minmax() и выравнивание в сетке.</p>
+            <div class="module__footer"><span>5 уроков</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">08</span>
+            <h3 class="module__title">HTML-формы</h3>
+            <p class="module__text">input, select, textarea, radio, checkbox, атрибуты required, type и placeholder.</p>
+            <div class="module__footer"><span>4 урока</span><a class="module__link" href="register.html">Пример →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">09</span>
+            <h3 class="module__title">Адаптивная вёрстка</h3>
+            <p class="module__text">Медиазапросы, относительные единицы, мобильное меню и удобные формы на телефоне.</p>
+            <div class="module__footer"><span>4 урока</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module">
+            <span class="module__num">10</span>
+            <h3 class="module__title">БЭМ и архитектура CSS</h3>
+            <p class="module__text">Блок, элемент, модификатор. Как называть классы, чтобы код было легко читать.</p>
+            <div class="module__footer"><span>3 урока</span><a class="module__link" href="lesson.html">Открыть →</a></div>
+          </article>
+
+          <article class="module module--wide">
+            <span class="module__num">11</span>
+            <h3 class="module__title">Итоговый проект</h3>
+            <p class="module__text">Собираешь всё вместе: многостраничный адаптивный сайт на выбранную тему с формой, Flexbox и Grid. Защита проекта с объяснением использованных тегов и свойств.</p>
+            <div class="module__footer"><span>5 уроков + защита</span><a class="module__link" href="register.html">Записаться →</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Таблица расписания -->
+    <section class="section" id="schedule">
+      <div class="container">
+        <div class="table-wrap">
+          <table class="schedule">
+            <caption class="schedule__caption">Расписание потока, весна 2027</caption>
+            <thead>
+              <tr>
+                <th scope="col">№</th>
+                <th scope="col">Модуль</th>
+                <th scope="col">Недели</th>
+                <th scope="col">Часы</th>
+                <th scope="col">Формат</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>01</td><td>Как работает веб</td><td>1</td><td>4</td><td>запись</td></tr>
+              <tr><td>02</td><td>HTML и семантика</td><td>1–2</td><td>8</td><td>онлайн</td></tr>
+              <tr><td>03</td><td>CSS: селекторы и каскад</td><td>2–3</td><td>7</td><td>онлайн</td></tr>
+              <tr><td>04</td><td>Блочная модель</td><td>3–4</td><td>6</td><td>запись</td></tr>
+              <tr><td>05</td><td>Позиционирование</td><td>4–5</td><td>6</td><td>запись</td></tr>
+              <tr><td>06</td><td>Flexbox</td><td>5–6</td><td>7</td><td>онлайн</td></tr>
+              <tr><td>07</td><td>CSS Grid</td><td>6–7</td><td>7</td><td>онлайн</td></tr>
+              <tr><td>08</td><td>HTML-формы</td><td>8</td><td>5</td><td>запись</td></tr>
+              <tr><td>09</td><td>Адаптивная вёрстка</td><td>9</td><td>6</td><td>онлайн</td></tr>
+              <tr><td>10</td><td>БЭМ и архитектура CSS</td><td>10</td><td>4</td><td>запись</td></tr>
+              <tr><td>11</td><td>Итоговый проект</td><td>11–12</td><td>12</td><td>защита</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td></td><td>Итого</td><td>12</td><td>72</td><td></td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__col">
+        <a class="logo footer__logo" href="index.html">
+          <img class="logo__img" src="img/logo.svg" alt="" width="40" height="40">
+          <span class="logo__text">AlishLab</span>
+        </a>
+        <p class="footer__about">Учебный проект по дисциплине «Веб-технологии». Школа вёрстки на HTML и CSS.</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Разделы</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="index.html">Главная</a></li>
+          <li><a class="footer__link" href="curriculum.html">Программа</a></li>
+          <li><a class="footer__link" href="lesson.html">Урок</a></li>
+          <li><a class="footer__link" href="register.html">Запись на курс</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Контакты</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="mailto:hello@alishlab.example">hello@alishlab.example</a></li>
+          <li><a class="footer__link" href="tel:+996555000000">+996 (555) 00-00-00</a></li>
+          <li>г. Бишкек, Кыргызстан</li>
+          <li>Пн–Пт, 10:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© 2026 AlishLab. Модульное задание № 1.</span>
+      <a class="footer__link" href="#top">Наверх ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
