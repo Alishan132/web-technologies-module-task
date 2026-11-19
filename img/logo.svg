@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AlishLab">
+  <rect x="5" y="5" width="54" height="54" rx="14" fill="#14181f"/>
+  <rect x="2" y="2" width="54" height="54" rx="14" fill="#c2410c" stroke="#14181f" stroke-width="3"/>
+  <path d="M22 19 L12 29 L22 39" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 19 L46 29 L36 39" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 15 L26 43" stroke="#fde7d4" stroke-width="5" stroke-linecap="round"/>
+</svg>

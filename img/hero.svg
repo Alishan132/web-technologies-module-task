@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="t">
+  <title id="t">Окно браузера со схемой вёрстки страницы</title>
+  <!-- окно браузера -->
+  <rect x="4" y="4" width="512" height="412" rx="22" fill="#ffffff" stroke="#14181f" stroke-width="4"/>
+  <path d="M4 26 a22 22 0 0 1 22 -22 h468 a22 22 0 0 1 22 22 v28 h-512 z" fill="#e6e8ec" stroke="#14181f" stroke-width="4"/>
+  <circle cx="34" cy="30" r="8" fill="#c2410c" stroke="#14181f" stroke-width="3"/>
+  <circle cx="60" cy="30" r="8" fill="#fde7d4" stroke="#14181f" stroke-width="3"/>
+  <circle cx="86" cy="30" r="8" fill="#8a93a1" stroke="#14181f" stroke-width="3"/>
+  <rect x="116" y="18" width="270" height="24" rx="12" fill="#ffffff" stroke="#14181f" stroke-width="3"/>
+  <text x="132" y="35" font-family="Consolas, monospace" font-size="13" fill="#4b5563">alishlab.example/index.html</text>
+
+  <!-- header -->
+  <rect x="28" y="76" width="464" height="44" rx="10" fill="#14181f"/>
+  <rect x="42" y="90" width="64" height="16" rx="8" fill="#c2410c"/>
+  <rect x="300" y="92" width="40" height="12" rx="6" fill="#f5f6f8"/>
+  <rect x="350" y="92" width="40" height="12" rx="6" fill="#f5f6f8"/>
+  <rect x="400" y="92" width="76" height="12" rx="6" fill="#fde7d4"/>
+
+  <!-- hero-блок -->
+  <rect x="28" y="136" width="290" height="120" rx="12" fill="#fde7d4" stroke="#14181f" stroke-width="3"/>
+  <rect x="48" y="158" width="200" height="18" rx="6" fill="#14181f"/>
+  <rect x="48" y="184" width="150" height="18" rx="6" fill="#14181f"/>
+  <rect x="48" y="220" width="90" height="20" rx="10" fill="#c2410c" stroke="#14181f" stroke-width="3"/>
+  <!-- картинка -->
+  <rect x="334" y="136" width="158" height="120" rx="12" fill="#dbe2f0" stroke="#14181f" stroke-width="3"/>
+  <circle cx="380" cy="176" r="16" fill="#ffffff" stroke="#14181f" stroke-width="3"/>
+  <path d="M340 246 L392 202 L424 228 L446 210 L488 246 Z" fill="#4b5563" stroke="#14181f" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- три карточки (flex/grid) -->
+  <g stroke="#14181f" stroke-width="3">
+    <rect x="28" y="272" width="142" height="118" rx="12" fill="#ffffff"/>
+    <rect x="189" y="272" width="142" height="118" rx="12" fill="#f3d3c3"/>
+    <rect x="350" y="272" width="142" height="118" rx="12" fill="#d6e6df"/>
+  </g>
+  <g fill="#14181f">
+    <rect x="44" y="290" width="34" height="34" rx="8"/>
+    <rect x="44" y="336" width="100" height="10" rx="5"/>
+    <rect x="44" y="354" width="72" height="10" rx="5" opacity=".4"/>
+    <rect x="205" y="290" width="34" height="34" rx="8"/>
+    <rect x="205" y="336" width="100" height="10" rx="5"/>
+    <rect x="205" y="354" width="72" height="10" rx="5" opacity=".4"/>
+    <rect x="366" y="290" width="34" height="34" rx="8"/>
+    <rect x="366" y="336" width="100" height="10" rx="5"/>
+    <rect x="366" y="354" width="72" height="10" rx="5" opacity=".4"/>
+  </g>
+</svg>
